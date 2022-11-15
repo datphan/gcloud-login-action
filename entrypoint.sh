@@ -6,5 +6,6 @@ gcloud auth activate-service-account --key-file="${HOME}/gcloud.json"
 echo "::set-output name=username::oauth2accesstoken"
 TOKEN=$(gcloud auth print-access-token)
 echo "::add-mask::${TOKEN}"
-echo "::set-output name=password::${TOKEN}"
+# echo "::set-output name=password::${TOKEN}"
+echo "password=${TOKEN}" >> $GITHUB_OUTPUT
 echo "password=${TOKEN}" >> "$GITHUB_ENV"
